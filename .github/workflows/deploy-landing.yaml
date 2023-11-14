@@ -1,4 +1,4 @@
-name: Deploy game ui
+name: Deploy landing
 
 on:
   push:
@@ -9,7 +9,7 @@ env:
   IMAGE_TAG: latest
   DEPLOYMENT_NAME: orders-landing-deployment
   DEPLOYMENT_HOST: ${{ vars.DEPLOYMENT_HOST }}
-  NAMESPACE: orders
+  NAMESPACE: landing
 
 jobs:
   deploy:
