@@ -7,7 +7,7 @@ on:
 env:
   IMAGE_NAME: landing/order-landing
   IMAGE_TAG: latest
-  DEPLOYMENT_NAME: orders-landing-deployment
+  DEPLOYMENT_NAME: order-landing-deployment
   DEPLOYMENT_HOST: ${{ vars.DEPLOYMENT_HOST }}
   NAMESPACE: landing
 
