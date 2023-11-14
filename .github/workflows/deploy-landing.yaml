@@ -9,6 +9,7 @@ env:
   IMAGE_TAG: latest
   DEPLOYMENT_NAME: order-landing-deployment
   DEPLOYMENT_HOST: ${{ vars.DEPLOYMENT_HOST }}
+  CONTAINER_NAME: order-landing
   NAMESPACE: landing
 
 jobs:
@@ -32,5 +33,5 @@ jobs:
           kubectl config set-credentials my-user --token=${{ secrets.KUBE_TOKEN }}
           kubectl config set-context my-context --cluster=my-cluster --user=my-user
           kubectl config use-context my-context
-          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} ${{ env.IMAGE_NAME }}=${{ env.DEPLOYMENT_HOST }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} -n ${{ env.NAMESPACE }}
+          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} ${{ env.CONTAINER_NAME }}=${{ env.DEPLOYMENT_HOST }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} -n ${{ env.NAMESPACE }}
           kubectl rollout restart deployment/${{ env.DEPLOYMENT_NAME }} -n ${{ env.NAMESPACE }}
