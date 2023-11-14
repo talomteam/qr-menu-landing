@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-landing-deployment
+  namespace: landing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-landing
+  template:
+    metadata:
+      labels:
+        app: order-landing
+    spec:
+      containers:
+        - name: order-landing
+          image: reg.socwhale.biz:4443/landing/order-landing:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 1m
